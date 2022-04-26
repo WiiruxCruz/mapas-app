@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mapas-app"
+    }
+  },
+  "defaultProject": "mapas-app",
+  "cli": {
+    "analytics": "9ff99485-b683-4f7c-9d21-c91e724adddb"
+  }
 }
