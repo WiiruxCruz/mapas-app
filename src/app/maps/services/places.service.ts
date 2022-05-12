@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PlacesResponse, Feature } from '../interfaces/places';
 import { PlacesApiClient } from '../api';
+import { MapService } from './map.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -17,7 +18,10 @@ public places: Feature[] = [];
 		return !!this.useLocation; //Primer navegación es que tenga un valor y el segundo es la negación
 	}
 
-	constructor( private http: PlacesApiClient ) {
+	constructor(
+		private http: PlacesApiClient,
+		private mapService: MapService
+	) {
 		this.getUserLocation();
 	}
 
@@ -60,6 +64,8 @@ public places: Feature[] = [];
 		.subscribe( resp => {
 				this.isLoadingPLaces = false;
 				this.places = resp.features;
+
+				this.mapService.createMarkersFromPlaces( this.places );
 			}
 		);
 	}
