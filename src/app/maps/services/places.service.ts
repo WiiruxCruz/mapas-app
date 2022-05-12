@@ -41,6 +41,12 @@ public places: Feature[] = [];
 
 	getPlacesByQuery( query: string = '' ) {
 
+		if( query.length === 0 ) {
+			this.isLoadingPLaces = false;
+			this.places = [];
+			return;
+		}
+
 		if( !this.useLocation ) throw Error('No hay userLocation')
 
 		this.isLoadingPLaces = true;
@@ -52,8 +58,6 @@ public places: Feature[] = [];
 			}
 		)
 		.subscribe( resp => {
-				console.log( resp.features )
-
 				this.isLoadingPLaces = false;
 				this.places = resp.features;
 			}
