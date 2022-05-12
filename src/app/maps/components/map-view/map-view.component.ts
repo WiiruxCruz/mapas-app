@@ -1,7 +1,6 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { PlacesService } from '../../services/places.service';
 import { Map, Popup, Marker } from 'mapbox-gl';
-import { markTimeline } from 'console';
 import { MapService } from '../../services/map.service';
 
 @Component({
