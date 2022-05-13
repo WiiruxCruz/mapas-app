@@ -69,4 +69,8 @@ public places: Feature[] = [];
 			}
 		);
 	}
+
+	deletePlaces() {
+		this.places = []
+	}
 }
