@@ -65,7 +65,7 @@ public places: Feature[] = [];
 				this.isLoadingPLaces = false;
 				this.places = resp.features;
 
-				this.mapService.createMarkersFromPlaces( this.places );
+				this.mapService.createMarkersFromPlaces( this.places, this.useLocation! );
 			}
 		);
 	}
